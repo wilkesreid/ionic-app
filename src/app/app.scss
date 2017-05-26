@@ -1,0 +1,129 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+body {
+  font-size: 16px;
+  font-family: 'Karla', sans-serif;
+}
+a {
+  color: #0ed89e;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+#have-not-subscribed-header,
+.title.title-center.header-item,
+.item-bg-toggle > div > span,
+.list-card > div > h1,
+ion-content > div > h2,
+.back-text span {
+  color: #1e1e1e;
+}
+
+.tab-button[aria-selected=true] {
+  color: #0ed89e !important;
+  border-color: #0ed89e;
+}
+.tab-button[aria-selected=true] ion-icon {
+  color: #0ed89e !important;
+}
+page-explore ion-list,
+page-feed ion-list,
+page-explore ion-infinite-scroll,
+page-feed ion-infinite-scroll,
+page-explore .scroll-content,
+page-feed .scroll-content {
+  background-color: #f0f0f0;
+}
+page-explore ion-content,
+page-feed ion-content {
+  padding: 0;
+}
+
+.list-card {
+  background-color: #fff;
+}
+
+.story-image {
+  vertical-align: bottom;
+  margin-bottom: 5px;
+}
+.story-title {
+  color: #003f56;
+  font-size: 24px;
+  white-space: normal;
+  margin: 0 15px;
+}
+.story-title h1 {
+  line-height: 1;
+  margin-top: 0;
+}
+
+.story-meta:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.story-meta {
+  padding: 10px 15px;
+  margin-bottom: 30px;
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+}
+
+.story-date {
+  float: right;
+}
+
+.story-category {
+  float: left;
+}
+
+.story-spinner {
+  text-align: center;
+}
+
+#story-page-title {
+  font-size: 30px;
+  line-height: 1;
+  padding: 0 15px;
+}
+
+#story-page-content {
+  font-family: 'Karla', sans-serif;
+  white-space: pre-wrap;
+  font-size: 16px;
+  padding: 0 15px;
+  margin-top: 15px;
+}
+
+.fluid-video-container {
+  position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	height: 0;
+
+  iframe {
+    position: absolute;
+  	top: 0;
+  	left: 0;
+  	width: 100%;
+  	height: 100%;
+  }
+}

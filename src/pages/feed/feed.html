@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Feed</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content ng-cloak>
+  <ion-refresher (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div style="text-align:center; margin: 15px 0" *ngIf="loading && !refreshing">
+    <img src="assets/loading.svg" width="64" height="64">
+  </div>
+
+  <div style="padding: 0 15px" *ngIf="!subscribed_to_anything">
+    <h1 style="text-align: center;">Ionic App</h1>
+    <p>This is where stories will appear based on what channels you have subscribed to.
+      Click "Subscribe" in the menu below to customize what channels you see.</p>
+  </div>
+
+  <div style="padding: 0 15px; margin: 30px 0" *ngIf="subscribed_to_anything && !loading && stories === undefined">
+    <p style="text-align: center">There are no recent stories in your channels.</p>
+  </div>
+
+  <ion-list>
+    <div class="list-card" *ngFor="let story of stories" (click)="gotoStory(story.id)">
+      <div class="story-image">
+        <img class="story-image" [src]="story.image_url">
+      </div>
+      <div class="story-title">
+        <h1 [innerHtml]="story.title"></h1>
+      </div>
+      <div class="story-meta">
+        <span class="story-category" [innerHtml]="story.category"></span>
+        <span class="story-date">{{ story.date | date:'mediumDate' }}</span>
+      </div>
+    </div>
+  </ion-list>
+
+  <div style="padding: 0 15px; margin: 30px 0" *ngIf="endOfFeed && stories !== undefined">
+    <p style="text-align: center">There are no more stories.</p>
+  </div>
+
+  <ion-infinite-scroll (ionInfinite)="nextPage($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

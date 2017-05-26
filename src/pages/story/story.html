@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Story</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!storyLoaded" class="story-spinner">
+    <ion-spinner></ion-spinner>
+  </div>
+  <div *ngIf="storyLoaded">
+    <h2 id="story-page-title">{{ story.title }}</h2>
+    <img *ngIf="story.video === undefined && story.image_url !== undefined" class="full-image" [src]="story.image_url">
+    <div class="fluid-video-container" *ngIf="story.video !== undefined" [innerHtml]="story.video.safeHtml"></div>
+    <div id="story-page-content" [innerHtml]="story.content"></div>
+  </div>
+</ion-content>
